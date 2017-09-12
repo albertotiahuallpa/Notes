@@ -1,0 +1,102 @@
+#consejo: datos#columnas#8bytes/1000000 para calcularlo en MB
+#read.table es la forma general para leer datos [col.Classes, nrows, comment.char, stringAsFactors] y write.table lo es para escribir
+#Podemoa asignar el resultado de un condicional a una variable: y<-if (x>0){10} else{0}
+#seq_len(var) #nos da los valores de 1:lenght(var)
+#repeat{operaciones} if (condicion){operaciones} else{break} #bucleinfinito
+#for(rango){if(condicion){next}else{operacion}} next #ayuda a saltar pasos en el bucle
+#formals() y args() #permite ver los parametros de una funcion
+na.rm=TRUE #elimina los NA's en la funcion mean
+#el argumento "..." se utiliza cuantos argumentos se tienen o si vamos a pasar los parametros a otra funcion
+#darle espacios y en nuevas lineas dara un buen estilo de codigo
+search() #nos permite ver la lista de busqueda que r usara para buscar objetos
+ls(environment(funcion)) #nos muestra q hay en el ambiente
+get("var",environment(funcion)) #muestra el valor de una variable.
+#read.csv2 y read.delim2 sirven para europa cuando el formato de numero es 1,25 en vez del tradicional 1.25
+touper() tolower() #vuelven las letras en mayusculas y minusculas
+chartr() #permite cambiar los caracteres de alguna cadena por otros (funcion reemplazar)
+#a + b es lo mismo que `+`(a, b)
+#Usamos apply para trabajar en funciones en paralelo. Evitas fors whiles o repeats de forma explicita.
+#F de agregacion (sum o media)
+#F de transformacion (extraccion)
+#F Vectorizadas (regresan vectores, matrices, listas o arreglos)
+set.seed() -permite generar el mismo valor aleatorio
+apply #necesita margin=1 para trabajar por filas y 2 por columnas
+lapply #es para listas
+tapply #permite hacer un group por algun flag y trabajar
+
+#####Graficos
+pch= #permite cambiar el tipo de icono en plot 1-25
+type="n" #crea un grafico vacio
+points() #agrega puntos
+lines() #agrega lineas
+#podemos usar pdf(), png(), jpeg() o ps() para guardar imagenes
+abline()
+cex, cex.axis,lab,main o sub # reduce el tamaño de letra
+asp #cambia la proporcion x/y
+abline(h=1:5,v=1:5, col="purple",lty=2) #crea una cuadricula
+par() #define parametros para la sesión
+rainbow(n) #permite crear n índices para colorear (similares: heat.colors, topo.colors, cmcolors)
+expressions(simbol) #agrega simbología matemática a graficos
+hat() sombrero
+mu[0] #mu sub-cero
+substitute() #permite evaluar funciones dentro de graficas
+
+#####Graficos 3D
+#Podemos usar el paquete rgl
+type="p" or "l" or "s"
+
+#####Expresiones Regulares
+grep(patron,vector) lo usas cuando tienes mas de un string
+nchar(string)
+sprintf("texto %d %s" , numero, texto)) #une cadenas con variables
+substring() #extrae una subcadena con indices
+strsplit() #separa una cadena por un sep=" "
+#regexpr y gregexpr busca patrones y regresa el indice donde estan (usalo cuando solo hay un string)
+#Ahora, para buscar: [ab] donde halla a o b "a.b" muestra donde halla el trio a_b
+#si deseas buscar punto usa \\. 
+
+#####ggplot2
+qplot() #permite hacer una gran cantidad de graficos
+qplot(a#b,c) #podemos hacer calculos de variables
+shape=# cambia el pch
+alpha=I(1/10) #ayuda a graficar gran numero de datos
+size= #tamaño de los puntos
+facets=var ~. #separa en graficos los subgrupos
+geom="points" or "smooth" #smooth ajusta una curva a la grafica y su error
+geom="jitter" or "boxplot" #crea graficos mas pequeños
+geom="line" or "path" #grafica lineas
+geom="histogram" #crea barras
+geom="freqpoly" #polinomios de frecuencia
+geom="density" #curva suavizada
+
+#####Funciones matemáticas
+exp() log() sqrt() abs()
+sin() cos() tan() min() max()
+which.min() which.max() #nos da el indice donde esta el min/max
+pmin() pmax() #minimo de varios vectores
+sum() prod() # suma y producto
+cumsum() cumprod() # suma y producto acumulado
+round() ceiling() floor() #redondean al entero, maximo y minimo
+factorial()
+crossprod() #producto punto
+solve() # resuelve sistemas de ecuaciones lineales
+t() #transpuesta
+qr() chol()#descomposicion qr y de cholesky
+det() eigen()
+diag(n) #extrae diagonal, crea diagonales e identidades
+sweep() #ayuda a hacer calculos con matrices (similar a apply)debemos indicarle si por filas o columnas.
+sort() #ordena
+choose(n,k) #combinatorio
+union() intersect() setdiff() setequal() #vectores como conjuntos
+%in% #pertenece
+r #random
+p #cumulative probability
+d #probability
+q #quantile valores en el soporte
+ 
+#####Depuracion
+traceback() #analiza el codigo del final hacia arriba
+#Rerun & Debug uno puede ve paso a paso las lineas de codigo
+breakpoints()
+
+# Puedes integrar con integrate(function, 0,inf)
