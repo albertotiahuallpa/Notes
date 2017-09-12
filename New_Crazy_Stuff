@@ -1,0 +1,98 @@
+#I can asjust more histograms with add=T and make transparency with adjustcolor('color',alpha.f=0.5)
+hist(iris[iris$Species=="setosa",1],col='skyblue',border=F,xlim = c(4,8),ylim=c(0,17))
+hist(iris[iris$Species=="virginica",1],breaks=15,col=adjustcolor('red',alpha.f = 0.2),border=F,xlim = c(4,8),ylim=c(0,17),add=T)
+hist(iris[iris$Species=="versicolor",1],breaks=10,col=adjustcolor('green',alpha.f = 0.5),border=F,xlim = c(4,8),ylim=c(0,17),add=T)
+
+
+#https://github.com/jumanbar/Curso-R
+#Boxplot
+varwidth=T el ancho del box plot es proporcional a la raiz del tamaño de la muestra
+Tambien existen violinplots y bagplot (boxplot 2D)
+
+#Para text Mining de twitter o un archivo txt
+http://www.webmining.cl/2012/03/text-mining-de-un-discurso-presidencial-usando-r/
+
+http://www.webmining.cl/2012/07/text-mining-de-twitter-usando-r/
+
+#PLOT
+xaxt='n' permite borrar el eje x
+axis(1,at=c(201509,201510,201511),labels=c("Sep", "Oct", "Nov"))
+permite poner etiquetas donde desees en x
+ 
+
+#Corrplot to plot corr?
+http://sae.saiblogs.inf.um.es/generando-graficos-3d-en-movimiento-con-r/
+
+#Coneccion con Excel
+#Excel.link es un paquete que permite bajar info de R a hojas o libros en excel 
+xl.workbook.activate("data.xlsx")
+m=current.graphics()
+xl.sheet.add()
+xl[a1] = m
+
+#Subset
+Sirve para seleccionar un subgrupo de un dataframe
+subset(data,conditions)
+
+#RETIRAR FILAS CON NA'S
+clean<-na.omit(data)
+clean<-data[complete.cases(data),]
+#Conservar NA's
+datosNA<-data[!complete.cases(data),]
+
+#Dist normal
+install.packages("MASS")
+help(mvrnorm)
+
+#to reorder columns:
+data[,c(1,2,3,4)<-data[,c(1,3,2,4)]
+#to alter values of a column
+data$x1[data$x2 == "B"]  <- data$x1[data$x2 == "B"]*10 *from cm to mm
+#top and tail
+head(data,n=10)
+tail(data,n=10)
+
+#to add rows - cbind
+rbind(c(table1,table2))
+
+#to add columns
+c(table1,table2)
+
+#join table with selectiongs
+merge(table1,table2, by ="v1",all=TRUE)
+
+#To take out some rows
+database[-test,-5] # en cada i o j, puedo poner - y los indices
+
+#rowSums - colSums
+
+
+#Using randomForest package to impute data.Imputa valores NA en nuevo data set
+data.imputed <- rfImpute(VarDep ~ ., data)
+
+
+
+
+
+
+
+
+
+
+
+
+datos           <- read.csv('https://www.dropbox.com/s/r2ext2rlqwc65o1/cook.csv?dl=1')
+eliminados      <- datos[datos$cant=='none',] * data.frame sin registros
+modelo_lm       <- lm(cant ~ precio, datos)
+max.cook        <- max(cooks.distance(modelo_lm))
+umbral          <- 1 *tambien puede ser 4/n, donde n=total registros. ver ref.1
+ 
+while (max.cook >= umbral) 
+  { 
+    datos$cook  <- round(cooks.distance(modelo_lm),4) 
+    eliminados  <- rbind(eliminados, datos[datos$cook>umbral,])  
+    datos       <- subset(datos,!datos$cook>umbral)
+    datos       <- within(datos, rm(cook))
+    modelo_lm   <- lm(cant ~ precio, datos)
+    max.cook    <- max(cooks.distance(modelo_lm))
+  }
