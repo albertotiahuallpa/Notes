@@ -1,0 +1,8 @@
+-- puedes trabajar con eestas funciones para extraer inf.
+select TO_NUMBER(TO_CHAR(sysdate,'YYYYMM')) AS CODMES_A from dual;
+select  TO_DATE(&mesproc,'YYYYMM') from dual; --macrovariable se utiliza el & al inicio
+
+-- agregar dias o meses a fechas
+select months_between( to_date(201706,'YYYYMM'), to_date(201703,'yyyymm')) from dual;
+select sysdate + 3 from dual; 
+select add_months( sysdate, 3) from dual;
