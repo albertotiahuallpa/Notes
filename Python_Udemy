@@ -1,0 +1,60 @@
+#we can declare multiple variables
+var1, var2, var3= "Abyy","asdf","asdf"
+var1=var2=var3="apples"
+
+#####data types
+#numbers, strings, list, tuples, dictionaries
+var[0:3] #mostrara los caracteres 1,2 y 3
+print("%s %d Text" %("string",number)
+#listas se crean con [ , ] y son lo mismo q arreglos
+
+#Dictionaries gives you the opportunity to create values and keys
+#diccionarios se crean con { : , : } y no estan definidos en orden, las categorias salen diferentes.
+dictionary.clear() #vacia el diccionario
+dictionary.keys() 
+dictionary.values() 
+dictionary.update(something) 
+#tuples can not be modified
+#tuples are created with ( , )
+
+if/else
+if condition : sentence
+else: sentence
+#ten cuidado con los tabs (indexacion) debe darle un tab a las sentencias
+elif #permite agregar mas ifs
+
+##### operadores logicos: and or 
+
+loops
+for i in range(from, to, by):
+         print(i)
+while condition:
+           sentence
+#Puedes usar " o ' pero empieza con el que temrines (en caso uses ' , cambialo con \')
+
+def funcName (parameter) #define una funcion
+open() #abre un archivo (como segundo argumento "a", "a+", "r" o "w" significa appending, appending y leer, reading y writing)
+.read() #imprime el contenido. Si lees una vez, necesitaras volver el cursor arriba, sino no mostrara nada
+.tell() #muestra donde esta el cursor
+.seek(0,0) #plantea el cursor al inicio
+
+import os
+os.rename("test.txt","test2.txt")
+os.remove("test.txt")
+
+#FUNCTIONS
+   break #stops a loop
+   continue #jumps a loop
+   #try and except ayuda a checar donde se cae el codigo
+abs() #valor absoluto
+bool() #si hay algo en el parentesis es True
+dir() #te da que funciones podrias aplicar
+eval() #evalúa los valores calculándolos
+float() #vuelve strings a floats
+int() #trunca decimales.
+len() #dimension de lista
+del  #es igual a rm()
+#min y max sirven para numeros y strings
+.append() #add a row
+.count() #gives the frecuency of something
+input() #equals to cin (c++)
